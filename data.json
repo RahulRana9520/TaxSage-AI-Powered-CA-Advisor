@@ -1,0 +1,833 @@
+{
+  "users": {
+    "336a12f8-1a12-498f-a21d-d3140c18d3c0": {
+      "id": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+      "email": "rahul015january@gmail.com",
+      "passwordHash": "20bb07488ed7faaa42174facf7fbe18f85c8edd2bd39402821ce5d1240e3e1aa",
+      "name": "Rahul Rana",
+      "createdAt": "2025-09-01T17:41:30.511Z"
+    },
+    "3c628282-1c17-4d64-a410-0a8b6b9b824c": {
+      "id": "3c628282-1c17-4d64-a410-0a8b6b9b824c",
+      "email": "www.rsromen.com@gmail.com",
+      "passwordHash": "a13461d641c56e72fd060a1f227365adb668b2f5db7689109dafdc4ed048efaa",
+      "name": "durgesh",
+      "createdAt": "2025-09-14T17:12:50.642Z"
+    },
+    "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78": {
+      "id": "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78",
+      "email": "aman123@gmail.com",
+      "passwordHash": "c6e0ee5c917d09af6bb4c1c310587a861be602e62a5c2239992bca64a8d70b23",
+      "name": "Aman joshi ",
+      "createdAt": "2025-09-25T17:50:59.983Z"
+    },
+    "62032285-8b74-4253-acb5-2921a72c8154": {
+      "id": "62032285-8b74-4253-acb5-2921a72c8154",
+      "email": "rahulrana952046@gmail.com",
+      "passwordHash": "59e4f2de72d72d08744e7212bf04eb3a6b114b288185279ff1fd6d3a08cdf10d",
+      "name": "Rahul Rana",
+      "createdAt": "2025-10-15T04:01:59.803Z"
+    },
+    "4897c652-d18b-42dd-b4d4-5e27faa9f6dc": {
+      "id": "4897c652-d18b-42dd-b4d4-5e27faa9f6dc",
+      "email": "p@123",
+      "passwordHash": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "name": "priti",
+      "createdAt": "2025-10-15T07:10:59.718Z"
+    }
+  },
+  "usersByEmail": {
+    "rahul015january@gmail.com": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+    "www.rsromen.com@gmail.com": "3c628282-1c17-4d64-a410-0a8b6b9b824c",
+    "aman123@gmail.com": "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78",
+    "rahulrana952046@gmail.com": "62032285-8b74-4253-acb5-2921a72c8154",
+    "p@123": "4897c652-d18b-42dd-b4d4-5e27faa9f6dc"
+  },
+  "profiles": {
+    "19a65272-5f17-46b4-8f1e-5a7a3f0044af": {
+      "userId": "19a65272-5f17-46b4-8f1e-5a7a3f0044af",
+      "fullName": "Rahul ",
+      "age": 32,
+      "location": "Dehradun",
+      "dependents": 4,
+      "filingStatus": "single"
+    },
+    "336a12f8-1a12-498f-a21d-d3140c18d3c0": {
+      "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+      "fullName": "Vedant",
+      "age": 20,
+      "location": "Dehradun",
+      "dependents": 5,
+      "filingStatus": "single"
+    },
+    "3c628282-1c17-4d64-a410-0a8b6b9b824c": {
+      "userId": "3c628282-1c17-4d64-a410-0a8b6b9b824c",
+      "fullName": "durgesh",
+      "age": 22,
+      "location": "dehradun",
+      "dependents": 1,
+      "filingStatus": "single"
+    },
+    "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78": {
+      "userId": "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78",
+      "fullName": "Aman joshi",
+      "age": 22,
+      "location": "dehradun",
+      "dependents": 2,
+      "filingStatus": "single"
+    },
+    "62032285-8b74-4253-acb5-2921a72c8154": {
+      "userId": "62032285-8b74-4253-acb5-2921a72c8154",
+      "fullName": "Rahul",
+      "age": 22,
+      "location": "dun",
+      "dependents": 2,
+      "filingStatus": "single"
+    },
+    "4897c652-d18b-42dd-b4d4-5e27faa9f6dc": {
+      "userId": "4897c652-d18b-42dd-b4d4-5e27faa9f6dc",
+      "fullName": "",
+      "location": "",
+      "filingStatus": "single"
+    }
+  },
+  "income": {
+    "19a65272-5f17-46b4-8f1e-5a7a3f0044af": [
+      {
+        "id": "fc7d5a75-7329-4456-8926-0a30388ae0c0",
+        "userId": "19a65272-5f17-46b4-8f1e-5a7a3f0044af",
+        "source": "Salary",
+        "amount": 13243234,
+        "frequency": "monthly"
+      }
+    ],
+    "336a12f8-1a12-498f-a21d-d3140c18d3c0": [
+      {
+        "id": "acb3699a-e714-4885-bb04-db8a05fee60e",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 3244324,
+        "frequency": "monthly"
+      },
+      {
+        "id": "183863c1-698b-49b3-8d66-38f897278f01",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 34123413,
+        "frequency": "monthly"
+      },
+      {
+        "id": "1036a928-7227-4dcd-ac5f-5021d93f99c0",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "ihihihnkj",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "f358e78f-9712-4180-b000-5d0af65ef846",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "bhbh",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "b1f20810-4b17-4ad9-bb5b-3a87c6d8186f",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "74e8fb67-3749-42ec-ac76-1a094fcbe2ef",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "b71d58ad-1563-4eac-b5e0-ea2b732b226c",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "6ebb1b7d-b300-4f7e-b05d-0b9d06f7af05",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 30000,
+        "frequency": "monthly"
+      },
+      {
+        "id": "4e00cff3-7cf4-45d3-badc-f3a9caf943b5",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 1000000,
+        "frequency": "weekly"
+      },
+      {
+        "id": "0a3048b1-b93f-4355-9ef9-0d9c10e512f5",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 100000,
+        "frequency": "monthly"
+      },
+      {
+        "id": "a0c97900-bc99-46ac-abcd-54104de9c28b",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 1232,
+        "frequency": "monthly"
+      },
+      {
+        "id": "d60046b0-9af1-47ff-83c3-94acba83a01a",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 500000,
+        "frequency": "yearly"
+      },
+      {
+        "id": "6c01c62c-6ab1-4856-bb5a-ada8096ff209",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "0731abe4-1bff-4997-a23d-22070dad69c7",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "2cde47ab-5b53-4c87-9cc2-9dacf1e76f04",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "6080ef45-ca61-4a52-accb-68fd57a3c2c7",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 5000000,
+        "frequency": "yearly"
+      },
+      {
+        "id": "a5cb9960-7997-472a-bbc9-a8a18537b802",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 50000000,
+        "frequency": "monthly"
+      },
+      {
+        "id": "83fdc48a-ecc0-4848-b38f-ea743b2be493",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 1000000000,
+        "frequency": "monthly"
+      },
+      {
+        "id": "c1b623b9-dc66-4d9c-9685-40cb273cb04c",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "b2402aa1-c290-4c42-9588-b6caa51c21e9",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 180000,
+        "frequency": "monthly"
+      },
+      {
+        "id": "6058a1b4-78c6-4997-97c9-84d0a52b0fcb",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 1000000,
+        "frequency": "yearly"
+      },
+      {
+        "id": "15824e4b-9d70-4bea-a810-09e69b641388",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "b8aace91-b60d-47fd-a89e-00cb87cb3dc2",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "4edd5885-239c-4b78-b61b-b08b96a120be",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "c2bbff5a-fe3b-4176-b391-f6ce2471d717",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "ab0f9d40-f7ee-4c9b-bfb1-d6f19acda18a",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "eeb81760-5b35-4d07-b0be-e3cd2a7c61e1",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "0330c86b-cc53-4cdf-8469-1d34a0045f72",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "283c781f-41db-4a7a-acc7-bc2e3e5f216d",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "d15440c1-17be-4b8f-ac44-f3b3d2ecd481",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "feb62148-04ed-4744-aecf-ba862710e155",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "013a9c0f-363a-4a22-b996-2c06a9fe59b6",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "687ec3d4-bd7c-4a66-a4bd-dcb4fdf32a05",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "88b272eb-48bf-441a-bf19-26f1e61401df",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "df9deb11-ad13-41a9-bdea-3aee9d3976b5",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "efa5223a-0f19-4e41-a5b8-5d90fb2c8faa",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "cc4b2cd4-91ac-43e4-a3c4-9558bd29f575",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "3cb24132-923e-479d-becb-3b5cf08a4ff6",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "4c8f62dd-021e-4747-bcdf-8b4610d5966c",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "06346bbc-36ca-44ca-a6f2-afa14de6863c",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "834f5880-37c5-4d7f-a4d9-707999748c4a",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "b27f204b-022a-4495-b006-337b815d79a5",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "f90453f7-0b0d-4a73-8dad-adb28ab2c312",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "faeca03f-7752-4e76-989a-bd6c54b1b671",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "409d3546-570e-473a-b449-c3e522fb767c",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "6ad3408e-10a5-479d-9b3a-c6fdddb986cb",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "6e9d9ea4-f235-458d-bb44-7b9f9a764a68",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "3ae9d7ff-72de-458e-a9a5-7a356af87512",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "5308f0d1-846a-4307-aaae-a2cde9f0b58b",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "FARM",
+        "amount": 100000,
+        "frequency": "monthly"
+      },
+      {
+        "id": "4e7b2f68-dba2-4fc8-bd51-615b520fffdf",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "SALARY",
+        "amount": 40000,
+        "frequency": "monthly"
+      }
+    ],
+    "3c628282-1c17-4d64-a410-0a8b6b9b824c": [
+      {
+        "id": "3733ffe7-56c0-49a4-90ff-bdba13d1688c",
+        "userId": "3c628282-1c17-4d64-a410-0a8b6b9b824c",
+        "source": "Salary",
+        "amount": 2000000,
+        "frequency": "monthly"
+      }
+    ],
+    "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78": [
+      {
+        "id": "ea3dfc0f-c135-4c19-9ea0-0343648ac46f",
+        "userId": "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78",
+        "source": "Salary",
+        "amount": 500000,
+        "frequency": "monthly"
+      },
+      {
+        "id": "be9befbd-a9bb-42ba-89d9-e576a41d01a3",
+        "userId": "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78",
+        "source": "bussines",
+        "amount": 1000000,
+        "frequency": "monthly"
+      }
+    ],
+    "62032285-8b74-4253-acb5-2921a72c8154": [
+      {
+        "id": "d20d0aa4-e8a8-4d80-8f6e-575440fcc6a6",
+        "userId": "62032285-8b74-4253-acb5-2921a72c8154",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "868b4bf4-204a-4989-8606-d9bb1094ce7c",
+        "userId": "62032285-8b74-4253-acb5-2921a72c8154",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      },
+      {
+        "id": "6cd53aeb-7107-45aa-811b-b45bce1b90dd",
+        "userId": "62032285-8b74-4253-acb5-2921a72c8154",
+        "source": "Salary",
+        "amount": 49999,
+        "frequency": "monthly"
+      },
+      {
+        "id": "daff538a-2bc7-4ee1-bc42-f2e0dd9e6005",
+        "userId": "62032285-8b74-4253-acb5-2921a72c8154",
+        "source": "farm",
+        "amount": 500000,
+        "frequency": "monthly"
+      }
+    ],
+    "4897c652-d18b-42dd-b4d4-5e27faa9f6dc": [
+      {
+        "id": "860e9b0d-d03b-4daf-bfb5-a843bf53a3ae",
+        "userId": "4897c652-d18b-42dd-b4d4-5e27faa9f6dc",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      }
+    ]
+  },
+  "expenses": {
+    "19a65272-5f17-46b4-8f1e-5a7a3f0044af": [
+      {
+        "id": "7059556c-51f4-48aa-b56f-21615b52437b",
+        "userId": "19a65272-5f17-46b4-8f1e-5a7a3f0044af",
+        "category": "entertainment",
+        "amount": 13333,
+        "date": "2025-09-01T17:34:29.804Z",
+        "description": "",
+        "level": "moderate"
+      }
+    ],
+    "336a12f8-1a12-498f-a21d-d3140c18d3c0": [
+      {
+        "id": "301316bf-ef06-4dce-90df-c176402d5852",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "category": "entertainment",
+        "amount": 243,
+        "date": "2025-09-01T18:04:40.360Z",
+        "description": "",
+        "level": "moderate"
+      },
+      {
+        "id": "8a16d40f-0a87-4789-a233-89df4aacdd9b",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "category": "entertainment",
+        "amount": 3242,
+        "date": "2025-09-01T18:04:47.130Z",
+        "description": "",
+        "level": "moderate"
+      },
+      {
+        "id": "6eef1c71-eb1f-46a9-ac96-46f38fbdfb67",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "category": "entertainment",
+        "amount": 615,
+        "date": "2025-09-01T18:05:03.003Z",
+        "description": "",
+        "level": "moderate"
+      },
+      {
+        "id": "eff49e37-fc69-4134-9f0a-549112a035aa",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "category": "entertainment",
+        "amount": 876876,
+        "date": "2025-09-09T16:09:10.159Z",
+        "description": "",
+        "level": "moderate"
+      }
+    ],
+    "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78": [
+      {
+        "id": "c509c1bb-c865-446d-9855-ea1f2d2e2e4f",
+        "userId": "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78",
+        "category": "entertainment",
+        "amount": 3000000,
+        "date": "2025-09-25T17:53:00.558Z",
+        "description": "brought watch",
+        "level": "expensive"
+      }
+    ]
+  },
+  "budgets": {
+    "19a65272-5f17-46b4-8f1e-5a7a3f0044af": [
+      {
+        "id": "b5b8923b-e24d-4419-b213-c008c311c621",
+        "userId": "19a65272-5f17-46b4-8f1e-5a7a3f0044af",
+        "category": "housing",
+        "monthlyAmount": 1333
+      },
+      {
+        "id": "aaaf4363-9efc-4188-b94d-b73bef105a34",
+        "userId": "19a65272-5f17-46b4-8f1e-5a7a3f0044af",
+        "category": "food",
+        "monthlyAmount": 12324
+      },
+      {
+        "id": "bab5a640-36d2-45ea-ba56-2e8ef70c97a0",
+        "userId": "19a65272-5f17-46b4-8f1e-5a7a3f0044af",
+        "category": "transport",
+        "monthlyAmount": 12342
+      },
+      {
+        "id": "6395c21b-5a36-4231-ad7d-8dd0b25a84dc",
+        "userId": "19a65272-5f17-46b4-8f1e-5a7a3f0044af",
+        "category": "entertainment",
+        "monthlyAmount": 12342
+      },
+      {
+        "id": "f62ff692-0d37-4d25-ae3a-e39c4e2236a9",
+        "userId": "19a65272-5f17-46b4-8f1e-5a7a3f0044af",
+        "category": "investments",
+        "monthlyAmount": 132424
+      }
+    ],
+    "336a12f8-1a12-498f-a21d-d3140c18d3c0": [
+      {
+        "id": "67957461-b25c-4732-9dc5-2dae046136b0",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "category": "housing",
+        "monthlyAmount": 20000
+      },
+      {
+        "id": "d945bd47-1dd4-404b-8739-2d7681799657",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "category": "food",
+        "monthlyAmount": 10000
+      },
+      {
+        "id": "69d90c56-ae28-48f6-bd86-cc3afb48fcf1",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "category": "transport0",
+        "monthlyAmount": 3000
+      },
+      {
+        "id": "2e88be8d-a44d-441a-908d-c11585ea9c6e",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "category": "entertainment",
+        "monthlyAmount": 2000
+      },
+      {
+        "id": "866b93b7-ee76-4b98-a70b-ddb5051c729b",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "category": "investments",
+        "monthlyAmount": 500
+      }
+    ],
+    "3c628282-1c17-4d64-a410-0a8b6b9b824c": [
+      {
+        "id": "24217283-3de4-40b7-af3d-8394a045b571",
+        "userId": "3c628282-1c17-4d64-a410-0a8b6b9b824c",
+        "category": "housing",
+        "monthlyAmount": 20000
+      },
+      {
+        "id": "68c06b37-7e36-44f5-be7b-abb348f0e5aa",
+        "userId": "3c628282-1c17-4d64-a410-0a8b6b9b824c",
+        "category": "food",
+        "monthlyAmount": 20000
+      },
+      {
+        "id": "372806b4-7f28-4b2b-9638-d352380c7e80",
+        "userId": "3c628282-1c17-4d64-a410-0a8b6b9b824c",
+        "category": "transport",
+        "monthlyAmount": 2000
+      },
+      {
+        "id": "c3138a78-07ff-4aa5-b2ad-10cf65cfdd0a",
+        "userId": "3c628282-1c17-4d64-a410-0a8b6b9b824c",
+        "category": "entertainment",
+        "monthlyAmount": 20000
+      },
+      {
+        "id": "3878fd8a-e4ce-41df-8226-95274090f609",
+        "userId": "3c628282-1c17-4d64-a410-0a8b6b9b824c",
+        "category": "investments",
+        "monthlyAmount": 200000
+      }
+    ],
+    "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78": [
+      {
+        "id": "19229953-7dbc-4945-b9c9-c206bd92c4c3",
+        "userId": "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78",
+        "category": "housing",
+        "monthlyAmount": 29000
+      },
+      {
+        "id": "4b24c82d-6d9d-4827-8a76-deb8d7015dff",
+        "userId": "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78",
+        "category": "food",
+        "monthlyAmount": 200000
+      },
+      {
+        "id": "2284b082-39f8-43b1-990f-7e984aeaeb0a",
+        "userId": "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78",
+        "category": "transport",
+        "monthlyAmount": 200000
+      },
+      {
+        "id": "dfd4c4a9-8f49-4626-aa0f-c029c24acbe9",
+        "userId": "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78",
+        "category": "entertainment",
+        "monthlyAmount": 20000
+      },
+      {
+        "id": "48025244-a00a-468a-8c50-223e0dc4b9a5",
+        "userId": "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78",
+        "category": "investments",
+        "monthlyAmount": 20000
+      }
+    ],
+    "62032285-8b74-4253-acb5-2921a72c8154": [
+      {
+        "id": "0bbf3b38-28d5-463d-9a51-0c98d02f296f",
+        "userId": "62032285-8b74-4253-acb5-2921a72c8154",
+        "category": "housing",
+        "monthlyAmount": 10000
+      },
+      {
+        "id": "87788306-4a67-455d-802c-4bf38444e072",
+        "userId": "62032285-8b74-4253-acb5-2921a72c8154",
+        "category": "food",
+        "monthlyAmount": 1000
+      },
+      {
+        "id": "fa9fc871-ac4d-4540-abe3-bf3d6f87b231",
+        "userId": "62032285-8b74-4253-acb5-2921a72c8154",
+        "category": "transport",
+        "monthlyAmount": 10000
+      },
+      {
+        "id": "367316f0-a13e-4fc5-8631-798ffad11553",
+        "userId": "62032285-8b74-4253-acb5-2921a72c8154",
+        "category": "entertainment",
+        "monthlyAmount": 10000
+      },
+      {
+        "id": "1e59bb0b-63a5-4395-a28c-f6e1e8df14ae",
+        "userId": "62032285-8b74-4253-acb5-2921a72c8154",
+        "category": "investments",
+        "monthlyAmount": 10000
+      }
+    ],
+    "4897c652-d18b-42dd-b4d4-5e27faa9f6dc": [
+      {
+        "id": "a985fdc5-3426-4726-9b3c-eeee66ae5a97",
+        "userId": "4897c652-d18b-42dd-b4d4-5e27faa9f6dc",
+        "category": "housing",
+        "monthlyAmount": 0
+      },
+      {
+        "id": "d788d58b-ea81-4aed-956a-e0bb3bf6bd7d",
+        "userId": "4897c652-d18b-42dd-b4d4-5e27faa9f6dc",
+        "category": "food",
+        "monthlyAmount": 0
+      },
+      {
+        "id": "e5524e16-821a-4531-b063-ba770e0295fa",
+        "userId": "4897c652-d18b-42dd-b4d4-5e27faa9f6dc",
+        "category": "transport",
+        "monthlyAmount": 0
+      },
+      {
+        "id": "3f91471e-2e6d-4a27-bf8a-6ce8a6c22859",
+        "userId": "4897c652-d18b-42dd-b4d4-5e27faa9f6dc",
+        "category": "entertainment",
+        "monthlyAmount": 0
+      },
+      {
+        "id": "91fcc975-9876-407b-b61a-bdbc873551a6",
+        "userId": "4897c652-d18b-42dd-b4d4-5e27faa9f6dc",
+        "category": "investments",
+        "monthlyAmount": 0
+      }
+    ]
+  },
+  "goals": {
+    "19a65272-5f17-46b4-8f1e-5a7a3f0044af": [
+      {
+        "id": "6feb1d4b-a7fb-4cc9-a716-3e8401167550",
+        "userId": "19a65272-5f17-46b4-8f1e-5a7a3f0044af",
+        "name": "Buy a car",
+        "targetAmount": 1500000,
+        "targetDate": "2026-09-01"
+      }
+    ],
+    "336a12f8-1a12-498f-a21d-d3140c18d3c0": [
+      {
+        "id": "00b20a95-c11e-49b5-a2dd-8ceea4acd92d",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "name": "Buy a car",
+        "targetAmount": 1500000,
+        "targetDate": "2026-10-15"
+      }
+    ],
+    "3c628282-1c17-4d64-a410-0a8b6b9b824c": [
+      {
+        "id": "5e862e0c-9951-485e-9182-474c97180cba",
+        "userId": "3c628282-1c17-4d64-a410-0a8b6b9b824c",
+        "name": "Buy a car",
+        "targetAmount": 1500000,
+        "targetDate": "2026-09-14"
+      }
+    ],
+    "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78": [
+      {
+        "id": "c4ef59f7-6ec3-4d2d-87e9-972e0637b604",
+        "userId": "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78",
+        "name": "Buy a car",
+        "targetAmount": 1500000,
+        "targetDate": "2026-09-25"
+      }
+    ],
+    "62032285-8b74-4253-acb5-2921a72c8154": [
+      {
+        "id": "cf911a1c-a655-4aa7-8302-93d71e7431a9",
+        "userId": "62032285-8b74-4253-acb5-2921a72c8154",
+        "name": "Buy a car",
+        "targetAmount": 1500000,
+        "targetDate": "2027-09-15"
+      }
+    ],
+    "4897c652-d18b-42dd-b4d4-5e27faa9f6dc": [
+      {
+        "id": "e91a9bfa-a5d5-4ab0-8f29-f449a8e31073",
+        "userId": "4897c652-d18b-42dd-b4d4-5e27faa9f6dc",
+        "name": "Buy a car",
+        "targetAmount": 1500000,
+        "targetDate": "2026-10-15"
+      }
+    ]
+  }
+}

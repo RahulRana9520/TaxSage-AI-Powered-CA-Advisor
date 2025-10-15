@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Background Gradient -->
+  <defs>
+    <radialGradient id="bgGradient" cx="75%" cy="25%" r="75%">
+      <stop offset="0%" stop-color="#3d64db" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#1e3aaf"/>
+    </radialGradient>
+  </defs>
+  <rect width="256" height="256" rx="40" fill="url(#bgGradient)"/>
+
+  <!-- T (stylized) -->
+  <path d="M60 70 H196 Q180 90 128 90 Q76 90 60 70Z" fill="#ffffff" opacity="0.95"/>
+  <rect x="118" y="90" width="20" height="100" rx="6" fill="#ffffff"/>
+
+  <!-- S (flowing curve style) -->
+  <path d="M150 110c25-20 60-10 60 15c0 20-25 25-48 32c-20 6-36 14-36 30c0 28 50 32 72 10" 
+        fill="none" stroke="#facc15" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
