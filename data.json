@@ -34,6 +34,20 @@
       "passwordHash": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
       "name": "priti",
       "createdAt": "2025-10-15T07:10:59.718Z"
+    },
+    "c9e92f3d-e6df-410a-acc6-99abeeb2231e": {
+      "id": "c9e92f3d-e6df-410a-acc6-99abeeb2231e",
+      "email": "p123@gmail.com",
+      "passwordHash": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "name": "rahul",
+      "createdAt": "2025-10-22T11:19:11.484Z"
+    },
+    "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1": {
+      "id": "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1",
+      "email": "rahul01asds@gmail.com",
+      "passwordHash": "20daad794f1e12b031eaa583572f8b6b4154fbaed7089d43e1106950f03ff342",
+      "name": "rahul",
+      "createdAt": "2025-10-22T11:32:13.909Z"
     }
   },
   "usersByEmail": {
@@ -41,7 +55,9 @@
     "www.rsromen.com@gmail.com": "3c628282-1c17-4d64-a410-0a8b6b9b824c",
     "aman123@gmail.com": "5e4b8bc8-e76a-4cfa-b7de-0d0616822f78",
     "rahulrana952046@gmail.com": "62032285-8b74-4253-acb5-2921a72c8154",
-    "p@123": "4897c652-d18b-42dd-b4d4-5e27faa9f6dc"
+    "p@123": "4897c652-d18b-42dd-b4d4-5e27faa9f6dc",
+    "p123@gmail.com": "c9e92f3d-e6df-410a-acc6-99abeeb2231e",
+    "rahul01asds@gmail.com": "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1"
   },
   "profiles": {
     "19a65272-5f17-46b4-8f1e-5a7a3f0044af": {
@@ -88,6 +104,15 @@
       "userId": "4897c652-d18b-42dd-b4d4-5e27faa9f6dc",
       "fullName": "",
       "location": "",
+      "filingStatus": "single"
+    },
+    "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1": {
+      "userId": "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1",
+      "fullName": "rahul ",
+      "age": 33,
+      "location": "dun",
+      "phoneNumber": "+913242343242",
+      "dependents": 2,
       "filingStatus": "single"
     }
   },
@@ -516,6 +541,22 @@
         "amount": 0,
         "frequency": "monthly"
       }
+    ],
+    "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1": [
+      {
+        "id": "c49c6f31-c4b4-44eb-980f-82b14577cd0d",
+        "userId": "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1",
+        "source": "Salary",
+        "amount": 100000,
+        "frequency": "monthly"
+      },
+      {
+        "id": "45f1fef7-d883-4705-865a-d36953acc2b2",
+        "userId": "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1",
+        "source": "farm",
+        "amount": 100000,
+        "frequency": "monthly"
+      }
     ]
   },
   "expenses": {
@@ -772,6 +813,38 @@
         "category": "investments",
         "monthlyAmount": 0
       }
+    ],
+    "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1": [
+      {
+        "id": "9ceec815-055d-404f-8520-43ba67a96889",
+        "userId": "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1",
+        "category": "housing",
+        "monthlyAmount": 1000
+      },
+      {
+        "id": "95f88557-00dc-4cf4-859f-28cc71cbb9fa",
+        "userId": "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1",
+        "category": "food",
+        "monthlyAmount": 1000
+      },
+      {
+        "id": "b0721833-c0da-497b-aeef-f969e58d5bf5",
+        "userId": "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1",
+        "category": "transport",
+        "monthlyAmount": 1000
+      },
+      {
+        "id": "75fdffbf-cc2d-4ba9-901c-ea6c9e309c93",
+        "userId": "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1",
+        "category": "entertainment",
+        "monthlyAmount": 1000
+      },
+      {
+        "id": "dcd09b8c-2998-4d9c-92a3-f5db79668c34",
+        "userId": "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1",
+        "category": "investments",
+        "monthlyAmount": 1000
+      }
     ]
   },
   "goals": {
@@ -827,6 +900,15 @@
         "name": "Buy a car",
         "targetAmount": 1500000,
         "targetDate": "2026-10-15"
+      }
+    ],
+    "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1": [
+      {
+        "id": "b514793d-2a21-44a6-b661-33f3452c20ca",
+        "userId": "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1",
+        "name": "Buy a car",
+        "targetAmount": 1500000,
+        "targetDate": "2026-10-22"
       }
     ]
   }

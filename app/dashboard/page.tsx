@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
+import ReactMarkdown from "react-markdown"
 import Link from "next/link"
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
@@ -462,11 +463,32 @@ export default function DashboardPage() {
         <CardContent className="grid gap-3">
           <div className="h-64 border border-white/20 rounded p-3 overflow-auto space-y-3 bg-white/5 backdrop-blur-sm">
             {chat.map((m, i) => (
-              <div key={i} className={m.role === "user" ? "text-right" : ""}>
+              <div key={i} className={m.role === "user" ? "text-right" : "text-left"}>
                 <div
-                  className={`inline-block px-3 py-2 rounded text-white ${m.role === "user" ? "bg-blue-500/20 backdrop-blur-sm border border-blue-400/30" : "bg-white/10 backdrop-blur-sm border border-white/20"}`}
+                  className={`inline-block max-w-full md:max-w-2xl px-4 py-3 rounded-2xl shadow-md whitespace-pre-wrap break-words text-base leading-relaxed ${
+                    m.role === "user"
+                      ? "bg-gradient-to-br from-blue-500/30 to-blue-700/30 border border-blue-400/30 text-blue-100"
+                      : "bg-gradient-to-br from-white/20 to-white/10 border border-white/20 text-white"
+                  }`}
+                  style={{ textAlign: "left", fontFamily: m.role === "user" ? undefined : 'inherit' }}
                 >
-                  {m.content}
+                  {m.role === "assistant" ? (
+                    <ReactMarkdown
+                      components={{
+                        p: (props: React.PropsWithChildren<React.HTMLAttributes<HTMLParagraphElement>>) => <p style={{ marginBottom: 12 }} {...props}>{props.children}</p>,
+                        ul: (props: React.PropsWithChildren<React.HTMLAttributes<HTMLUListElement>>) => <ul style={{ marginBottom: 12, paddingLeft: 20 }} {...props}>{props.children}</ul>,
+                        ol: (props: React.PropsWithChildren<React.OlHTMLAttributes<HTMLOListElement>>) => <ol style={{ marginBottom: 12, paddingLeft: 20 }} {...props}>{props.children}</ol>,
+                        li: (props: React.PropsWithChildren<React.LiHTMLAttributes<HTMLLIElement>>) => <li style={{ marginBottom: 4 }} {...props}>{props.children}</li>,
+                        strong: (props: React.PropsWithChildren<React.HTMLAttributes<HTMLElement>>) => <strong style={{ color: '#facc15' }} {...props}>{props.children}</strong>,
+                        em: (props: React.PropsWithChildren<React.HTMLAttributes<HTMLElement>>) => <em style={{ color: '#a5b4fc' }} {...props}>{props.children}</em>,
+                        code: (props: React.PropsWithChildren<React.HTMLAttributes<HTMLElement>>) => <code style={{ background: '#22223b', color: '#facc15', borderRadius: 4, padding: '2px 6px', fontSize: '0.95em' }} {...props}>{props.children}</code>,
+                      }}
+                    >
+                      {m.content}
+                    </ReactMarkdown>
+                  ) : (
+                    m.content
+                  )}
                 </div>
               </div>
             ))}

@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS user_profiles (
     full_name VARCHAR(255),
     age INTEGER CHECK (age > 0 AND age < 120),
     location VARCHAR(255),
+    phone_number VARCHAR(32), -- E.164 format with country code, e.g. +919876543210
     dependents INTEGER DEFAULT 0 CHECK (dependents >= 0),
     filing_status VARCHAR(16) CHECK (filing_status IN ('single', 'married', 'huf', 'other')),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,

@@ -16,6 +16,8 @@ import { useEffect, useState } from "react"
 import useSWR from "swr"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
+import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select"
+import { countryCodes } from "@/lib/country-codes"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation"
@@ -31,6 +33,8 @@ export default function OnboardingPage() {
   const [fullName, setFullName] = useState("")
   const [age, setAge] = useState<number | undefined>()
   const [location, setLocation] = useState("")
+  const [countryCode, setCountryCode] = useState("+91")
+  const [phoneNumber, setPhoneNumber] = useState("") // local part only
   const [dependents, setDependents] = useState<number | undefined>()
   const [filingStatus, setFilingStatus] = useState<"single" | "married" | "huf" | "other">("single")
 
@@ -62,10 +66,12 @@ export default function OnboardingPage() {
   }, [me])
 
   async function saveProfile() {
+    // Combine country code and phone number for E.164
+    const fullPhone = countryCode + phoneNumber.replace(/^0+/, "");
     await fetch("/api/data/profile", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ fullName, age, location, dependents, filingStatus }),
+      body: JSON.stringify({ fullName, age, location, phoneNumber: fullPhone, dependents, filingStatus }),
     })
     setStep(2)
   }
@@ -264,6 +270,33 @@ export default function OnboardingPage() {
               <div className="grid gap-2">
                 <Label>Location</Label>
                 <Input value={location} onChange={(e) => setLocation(e.target.value)} />
+              </div>
+              <div className="grid gap-2">
+                <Label>Phone Number</Label>
+                <div style={{ display: 'flex', gap: 8 }}>
+                  <Select value={countryCode} onValueChange={setCountryCode}>
+                    <SelectTrigger size="default" style={{ width: 120, minWidth: 90 }}>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent style={{ maxHeight: 300, overflowY: 'auto' }}>
+                      {countryCodes.map((c) => (
+                        <SelectItem key={c.code} value={c.code}>
+                          {c.name} ({c.code})
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <Input
+                    type="tel"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value.replace(/[^0-9]/g, ""))}
+                    placeholder="9876543210"
+                    pattern="^\\d{8,15}$"
+                    required
+                    style={{ flex: 1 }}
+                  />
+                </div>
+                <span className="text-xs text-muted-foreground">Select your country and enter your phone number. Country code will be used for tax advice.</span>
               </div>
               <div className="grid gap-2">
                 <Label>Filing Status</Label>
