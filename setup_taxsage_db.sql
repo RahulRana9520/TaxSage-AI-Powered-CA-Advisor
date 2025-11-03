@@ -78,14 +78,16 @@ CREATE TABLE IF NOT EXISTS user_goals (
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create credit analysis table
-CREATE TABLE IF NOT EXISTS credit_analysis (
+
+-- Create credit scores table (new, simple, for chatbot integration)
+CREATE TABLE IF NOT EXISTS credit_scores (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     user_id UUID NOT NULL REFERENCES app_users(id) ON DELETE CASCADE,
     credit_score INTEGER CHECK (credit_score >= 300 AND credit_score <= 850),
-    analysis_data JSONB,
-    pdf_file_path VARCHAR(500),
-    recommendations TEXT[],
+    band VARCHAR(32),
+    provider VARCHAR(32),
+    retrieved_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    source VARCHAR(255),
     analysis_date TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(user_id)
 );
@@ -109,17 +111,6 @@ CREATE TABLE IF NOT EXISTS chat_messages (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create file uploads table
-CREATE TABLE IF NOT EXISTS file_uploads (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    user_id UUID NOT NULL REFERENCES app_users(id) ON DELETE CASCADE,
-    filename VARCHAR(255) NOT NULL,
-    file_path VARCHAR(500) NOT NULL,
-    file_size INTEGER,
-    mime_type VARCHAR(100),
-    upload_purpose VARCHAR(50) CHECK (upload_purpose IN ('credit_report', 'document', 'other')),
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
 
 -- Create indexes for better performance
 CREATE INDEX IF NOT EXISTS idx_users_email ON app_users(email);

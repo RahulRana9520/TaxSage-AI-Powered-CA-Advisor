@@ -4,16 +4,123 @@ import { useChat } from "ai/react"
 import { GlassPanel } from "@/components/ui/glass-panel"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { useMemo, useCallback } from "react"
+import { useMemo, useEffect, useState } from "react"
+
+const CHAT_KEY = 'taxsage_chat_history';
 
 export default function ChatPage() {
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
+  // Custom send handler to always get latest credit score context
+
+  // Store the current input for roadmap detection
+  const [currentInput, setCurrentInput] = useState('');
+  
+  const {
+    messages, input, handleInputChange, isLoading, setInput, append
+  } = useChat({
     api: "/api/chat",
-    body: {
-      creditScore: typeof window !== 'undefined' ? localStorage.getItem('taxsage_user_credit_score') : null,
-      creditAnalysisDate: typeof window !== 'undefined' ? localStorage.getItem('taxsage_credit_analysis_date') : null,
+    initialMessages: typeof window !== 'undefined' ? (() => {
+      try {
+        const stored = localStorage.getItem(CHAT_KEY);
+        if (stored) return JSON.parse(stored);
+      } catch {}
+      return [];
+    })() : [],
+    onFinish: (message) => {
+      // Check if the user asked for a roadmap using the stored input
+      const inputLower = currentInput.toLowerCase();
+      const userAskedForRoadmap = inputLower.includes('roadmap') || 
+                                 inputLower.includes('make a plan') ||
+                                 inputLower.includes('create a plan') ||
+                                 inputLower.includes('help me plan') ||
+                                 inputLower.includes('strategy') ||
+                                 (inputLower.includes('plan') && (inputLower.includes('buy') || inputLower.includes('save') || inputLower.includes('invest')));
+      if (userAskedForRoadmap && message?.content && currentInput) {
+        // Extract title from user message
+        let title = 'Roadmap';
+        const userContent = currentInput.toLowerCase();
+        const afterRoadmap = userContent.split('roadmap')[1]?.trim() || 
+                           userContent.split('plan')[1]?.trim() ||
+                           userContent.split('strategy')[1]?.trim();
+        if (afterRoadmap) {
+          title = `Roadmap: ${afterRoadmap.charAt(0).toUpperCase() + afterRoadmap.slice(1)}`;
+        }
+        // Description is the AI response
+        const description = message.content.trim();
+        
+        // Create roadmap with metadata
+        const roadmapData = {
+          id: Date.now().toString(),
+          title,
+          description,
+          createdAt: new Date().toISOString(),
+          theme: 'default',
+          exported: false
+        };
+        
+        // Save to localStorage
+        const key = 'taxsage_roadmaps';
+        let roadmaps = [];
+        try {
+          const existing = localStorage.getItem(key);
+          if (existing) roadmaps = JSON.parse(existing);
+        } catch {}
+        roadmaps.push(roadmapData);
+        localStorage.setItem(key, JSON.stringify(roadmaps));
+        
+        // Show export button in chat for this message
+        setTimeout(() => {
+          const messageElements = document.querySelectorAll('[data-message-role="assistant"]');
+          const lastAssistantMessage = messageElements[messageElements.length - 1];
+          if (lastAssistantMessage && !lastAssistantMessage.querySelector('.export-roadmap-btn')) {
+            const exportBtn = document.createElement('button');
+            exportBtn.className = 'export-roadmap-btn bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm mt-2 mr-2';
+            exportBtn.textContent = '📋 Export to Roadmap';
+            exportBtn.onclick = () => {
+              roadmapData.exported = true;
+              const updatedRoadmaps = roadmaps.map((r: any) => r.id === roadmapData.id ? roadmapData : r);
+              localStorage.setItem(key, JSON.stringify(updatedRoadmaps));
+              window.dispatchEvent(new Event('taxsage_roadmap_updated'));
+              exportBtn.textContent = '✅ Exported';
+              exportBtn.disabled = true;
+            };
+            lastAssistantMessage.appendChild(exportBtn);
+          }
+        }, 100);
+        
+        // Trigger reload event for roadmap page
+        window.dispatchEvent(new Event('taxsage_roadmap_updated'));
+      }
+      // Save chat history after every message
+      try {
+        localStorage.setItem(CHAT_KEY, JSON.stringify([...messages, message]));
+      } catch {}
     }
   })
+
+  // Save chat history on every message change (for user input, not just AI response)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem(CHAT_KEY, JSON.stringify(messages));
+      } catch {}
+    }
+  }, [messages]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const creditScore = typeof window !== 'undefined' ? localStorage.getItem('taxsage_user_credit_score') : null;
+    const creditAnalysisDate = typeof window !== 'undefined' ? localStorage.getItem('taxsage_credit_analysis_date') : null;
+    if (!input.trim()) return;
+    
+    // Store current input for roadmap detection
+    setCurrentInput(input);
+    
+    await append({
+      role: "user",
+      content: input
+    });
+    setInput("");
+  };
 
   const headerPills = useMemo(() => {
     let creditStatus = "Not Analyzed";
@@ -147,15 +254,31 @@ export default function ChatPage() {
         <GlassPanel className="p-4 md:p-6">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-lg font-semibold text-foreground/95">TaxSage AI Assistant</h2>
-            <Button
-              variant="secondary"
-              className="bg-primary/15 text-foreground hover:bg-primary/25"
-              onClick={() => {
-                window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })
-              }}
-            >
-              Jump to latest
-            </Button>
+            <div className="flex gap-2">
+              <Button
+                variant="secondary"
+                className="bg-destructive/15 text-destructive hover:bg-destructive/25"
+                onClick={() => {
+                  if (confirm('Are you sure you want to clear the chat history?')) {
+                    // Clear messages
+                    // Since useChat doesn't have a clear method, we can reload the page or reset
+                    localStorage.removeItem(CHAT_KEY);
+                    window.location.reload();
+                  }
+                }}
+              >
+                Clear Chat
+              </Button>
+              <Button
+                variant="secondary"
+                className="bg-primary/15 text-foreground hover:bg-primary/25"
+                onClick={() => {
+                  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })
+                }}
+              >
+                Jump to latest
+              </Button>
+            </div>
           </div>
 
           <div className="glass relative mb-4 max-h-[60vh] overflow-y-auto bg-white/2 p-3 md:p-4">
@@ -169,7 +292,7 @@ export default function ChatPage() {
                 </li>
               )}
               {messages.map((m) => (
-                <li key={m.id} className="flex gap-3">
+                <li key={m.id} className="flex gap-3" data-message-role={m.role}>
                   <div
                     className={cn(
                       "h-6 w-6 shrink-0 rounded-md",

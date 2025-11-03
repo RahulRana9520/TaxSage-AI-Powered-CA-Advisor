@@ -48,6 +48,20 @@
       "passwordHash": "20daad794f1e12b031eaa583572f8b6b4154fbaed7089d43e1106950f03ff342",
       "name": "rahul",
       "createdAt": "2025-10-22T11:32:13.909Z"
+    },
+    "7b60bdb3-d5e8-4673-996a-e282fbf8821c": {
+      "id": "7b60bdb3-d5e8-4673-996a-e282fbf8821c",
+      "email": "preety123@gmail.com",
+      "passwordHash": "9e244802b683cb4d5c57960c00a92bf8b1abc037563ebb0ac5b7d61b9473c795",
+      "name": "Rahul Rana",
+      "createdAt": "2025-11-02T05:46:43.644Z"
+    },
+    "4d325b65-1d62-4f9e-8067-51f3755b21dd": {
+      "id": "4d325b65-1d62-4f9e-8067-51f3755b21dd",
+      "email": "priti@gmail.com",
+      "passwordHash": "6389a41ccb17ac0d30862430a434dc1653e6733cf4aafff209d730992948d8ba",
+      "name": "Rahul Rana",
+      "createdAt": "2025-11-02T06:06:08.887Z"
     }
   },
   "usersByEmail": {
@@ -57,7 +71,9 @@
     "rahulrana952046@gmail.com": "62032285-8b74-4253-acb5-2921a72c8154",
     "p@123": "4897c652-d18b-42dd-b4d4-5e27faa9f6dc",
     "p123@gmail.com": "c9e92f3d-e6df-410a-acc6-99abeeb2231e",
-    "rahul01asds@gmail.com": "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1"
+    "rahul01asds@gmail.com": "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1",
+    "preety123@gmail.com": "7b60bdb3-d5e8-4673-996a-e282fbf8821c",
+    "priti@gmail.com": "4d325b65-1d62-4f9e-8067-51f3755b21dd"
   },
   "profiles": {
     "19a65272-5f17-46b4-8f1e-5a7a3f0044af": {
@@ -71,9 +87,8 @@
     "336a12f8-1a12-498f-a21d-d3140c18d3c0": {
       "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
       "fullName": "Vedant",
-      "age": 20,
-      "location": "Dehradun",
-      "dependents": 5,
+      "location": "",
+      "phoneNumber": "+91",
       "filingStatus": "single"
     },
     "3c628282-1c17-4d64-a410-0a8b6b9b824c": {
@@ -114,6 +129,22 @@
       "phoneNumber": "+913242343242",
       "dependents": 2,
       "filingStatus": "single"
+    },
+    "7b60bdb3-d5e8-4673-996a-e282fbf8821c": {
+      "userId": "7b60bdb3-d5e8-4673-996a-e282fbf8821c",
+      "fullName": "",
+      "location": "",
+      "phoneNumber": "+91",
+      "filingStatus": "single"
+    },
+    "4d325b65-1d62-4f9e-8067-51f3755b21dd": {
+      "userId": "4d325b65-1d62-4f9e-8067-51f3755b21dd",
+      "fullName": "ewrwe",
+      "age": 13,
+      "location": "fwqer",
+      "phoneNumber": "+91324234234",
+      "dependents": 3,
+      "filingStatus": "married"
     }
   },
   "income": {
@@ -476,6 +507,13 @@
         "source": "SALARY",
         "amount": 40000,
         "frequency": "monthly"
+      },
+      {
+        "id": "995bc502-94df-4847-9564-df17183179e1",
+        "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
       }
     ],
     "3c628282-1c17-4d64-a410-0a8b6b9b824c": [
@@ -555,6 +593,24 @@
         "userId": "d4a6d039-96dd-4a27-b8a1-29eb010c9cb1",
         "source": "farm",
         "amount": 100000,
+        "frequency": "monthly"
+      }
+    ],
+    "7b60bdb3-d5e8-4673-996a-e282fbf8821c": [
+      {
+        "id": "e59c1b0e-33ae-484e-8edb-a32242e79046",
+        "userId": "7b60bdb3-d5e8-4673-996a-e282fbf8821c",
+        "source": "Salary",
+        "amount": 0,
+        "frequency": "monthly"
+      }
+    ],
+    "4d325b65-1d62-4f9e-8067-51f3755b21dd": [
+      {
+        "id": "f50653ca-4aed-4ab0-90a3-b607f1829455",
+        "userId": "4d325b65-1d62-4f9e-8067-51f3755b21dd",
+        "source": "Salary",
+        "amount": 13233333,
         "frequency": "monthly"
       }
     ]
@@ -656,34 +712,34 @@
     ],
     "336a12f8-1a12-498f-a21d-d3140c18d3c0": [
       {
-        "id": "67957461-b25c-4732-9dc5-2dae046136b0",
+        "id": "9a575c93-34a3-4112-bdeb-ba2c146a2e37",
         "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
         "category": "housing",
-        "monthlyAmount": 20000
+        "monthlyAmount": 0
       },
       {
-        "id": "d945bd47-1dd4-404b-8739-2d7681799657",
+        "id": "43fd5571-e8ab-4c3d-a057-f0f82ce7c56c",
         "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
         "category": "food",
-        "monthlyAmount": 10000
+        "monthlyAmount": 0
       },
       {
-        "id": "69d90c56-ae28-48f6-bd86-cc3afb48fcf1",
+        "id": "81ad37a0-1d0c-427e-8a41-8ad21fd51818",
         "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
-        "category": "transport0",
-        "monthlyAmount": 3000
+        "category": "transport",
+        "monthlyAmount": 0
       },
       {
-        "id": "2e88be8d-a44d-441a-908d-c11585ea9c6e",
+        "id": "ba25a415-d229-4ba0-af8c-abf745dbbfd8",
         "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
         "category": "entertainment",
-        "monthlyAmount": 2000
+        "monthlyAmount": 0
       },
       {
-        "id": "866b93b7-ee76-4b98-a70b-ddb5051c729b",
+        "id": "7b8e4fb3-f3c3-4eba-b2b5-6fa7d7788128",
         "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
         "category": "investments",
-        "monthlyAmount": 500
+        "monthlyAmount": 0
       }
     ],
     "3c628282-1c17-4d64-a410-0a8b6b9b824c": [
@@ -845,6 +901,70 @@
         "category": "investments",
         "monthlyAmount": 1000
       }
+    ],
+    "7b60bdb3-d5e8-4673-996a-e282fbf8821c": [
+      {
+        "id": "e5cb3d35-cc0f-43aa-9b41-a598ab093fc1",
+        "userId": "7b60bdb3-d5e8-4673-996a-e282fbf8821c",
+        "category": "housing",
+        "monthlyAmount": 0
+      },
+      {
+        "id": "87e94811-5e5d-49f8-8922-f5c13c118723",
+        "userId": "7b60bdb3-d5e8-4673-996a-e282fbf8821c",
+        "category": "food",
+        "monthlyAmount": 0
+      },
+      {
+        "id": "083c7a4d-6a79-4155-be2e-0533ffaeedb1",
+        "userId": "7b60bdb3-d5e8-4673-996a-e282fbf8821c",
+        "category": "transport",
+        "monthlyAmount": 0
+      },
+      {
+        "id": "b7d7e90b-8462-4ed2-aa6a-be3ed86cf270",
+        "userId": "7b60bdb3-d5e8-4673-996a-e282fbf8821c",
+        "category": "entertainment",
+        "monthlyAmount": 0
+      },
+      {
+        "id": "c6ad3e74-88c1-4f49-80c0-574b145e99d0",
+        "userId": "7b60bdb3-d5e8-4673-996a-e282fbf8821c",
+        "category": "investments",
+        "monthlyAmount": 0
+      }
+    ],
+    "4d325b65-1d62-4f9e-8067-51f3755b21dd": [
+      {
+        "id": "b4483bde-b937-486a-969c-86353df2cb0e",
+        "userId": "4d325b65-1d62-4f9e-8067-51f3755b21dd",
+        "category": "housing",
+        "monthlyAmount": 333
+      },
+      {
+        "id": "66eaa132-3b58-4a33-9c5c-90d182e0f46d",
+        "userId": "4d325b65-1d62-4f9e-8067-51f3755b21dd",
+        "category": "food",
+        "monthlyAmount": 33333
+      },
+      {
+        "id": "a7f9ca1b-d34f-4a4e-9c3d-5e1c6d14d0d9",
+        "userId": "4d325b65-1d62-4f9e-8067-51f3755b21dd",
+        "category": "transport",
+        "monthlyAmount": 3333
+      },
+      {
+        "id": "415239ce-4e9d-43d2-86ea-b8001ff5e740",
+        "userId": "4d325b65-1d62-4f9e-8067-51f3755b21dd",
+        "category": "entertainment",
+        "monthlyAmount": 3333
+      },
+      {
+        "id": "2978e187-3936-4150-ab40-52445bb23d02",
+        "userId": "4d325b65-1d62-4f9e-8067-51f3755b21dd",
+        "category": "investments",
+        "monthlyAmount": 3333
+      }
     ]
   },
   "goals": {
@@ -859,11 +979,11 @@
     ],
     "336a12f8-1a12-498f-a21d-d3140c18d3c0": [
       {
-        "id": "00b20a95-c11e-49b5-a2dd-8ceea4acd92d",
+        "id": "4b35a62d-1f6a-43df-b834-a4d31f28d977",
         "userId": "336a12f8-1a12-498f-a21d-d3140c18d3c0",
         "name": "Buy a car",
         "targetAmount": 1500000,
-        "targetDate": "2026-10-15"
+        "targetDate": "2026-11-02"
       }
     ],
     "3c628282-1c17-4d64-a410-0a8b6b9b824c": [
@@ -909,6 +1029,24 @@
         "name": "Buy a car",
         "targetAmount": 1500000,
         "targetDate": "2026-10-22"
+      }
+    ],
+    "7b60bdb3-d5e8-4673-996a-e282fbf8821c": [
+      {
+        "id": "5db04d50-0b54-4f49-9f53-062d50d1fb68",
+        "userId": "7b60bdb3-d5e8-4673-996a-e282fbf8821c",
+        "name": "Buy a car",
+        "targetAmount": 1500000,
+        "targetDate": "2026-11-02"
+      }
+    ],
+    "4d325b65-1d62-4f9e-8067-51f3755b21dd": [
+      {
+        "id": "cff60cc9-42bf-4b5d-b1e3-a718e50f1c53",
+        "userId": "4d325b65-1d62-4f9e-8067-51f3755b21dd",
+        "name": "Buy a car",
+        "targetAmount": 1500000,
+        "targetDate": "2026-11-02"
       }
     ]
   }

@@ -12,11 +12,19 @@ export async function POST(req) {
       return NextResponse.json({ error: 'Invalid request format' }, { status: 400 });
     }
 
-    const message = body?.message;
+    // Handle both useChat format (messages array) and direct message format
+    const messages = body?.messages || [];
+    const directMessage = body?.message;
     const creditScore = body?.creditScore;
     const creditAnalysisDate = body?.creditAnalysisDate;
-    console.log('Message received:', message);
+    
+    console.log('Messages received:', messages);
+    console.log('Direct message:', directMessage);
     console.log('Credit score provided:', creditScore);
+    
+    // Get the last user message
+    const lastUserMessage = messages.filter(m => m.role === 'user').pop();
+    const message = lastUserMessage?.content || directMessage;
     
     if (!message) {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 });
@@ -31,6 +39,26 @@ export async function POST(req) {
 
     // Call OpenRouter API
     console.log('Calling OpenRouter API');
+    
+    // Build conversation messages
+    const conversationMessages = [
+      {
+        role: 'system',
+        content: buildSystemPrompt(creditScore, creditAnalysisDate),
+      }
+    ];
+    
+    // Add conversation history if available
+    if (messages.length > 0) {
+      conversationMessages.push(...messages);
+    } else {
+      // Single message format
+      conversationMessages.push({
+        role: 'user',
+        content: message,
+      });
+    }
+    
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -41,16 +69,7 @@ export async function POST(req) {
       },
       body: JSON.stringify({
         model: 'deepseek/deepseek-chat',
-        messages: [
-          {
-            role: 'system',
-            content: buildSystemPrompt(creditScore, creditAnalysisDate),
-          },
-          {
-            role: 'user',
-            content: message,
-          },
-        ],
+        messages: conversationMessages,
         max_tokens: 300,
         temperature: 0.7,
       }),
@@ -72,7 +91,12 @@ export async function POST(req) {
     
     const content = data.choices?.[0]?.message?.content || 'No response generated';
     
-    return NextResponse.json({ content });
+    // Return format compatible with useChat hook
+    return NextResponse.json({
+      id: Date.now().toString(),
+      role: 'assistant',
+      content: content
+    });
     
   } catch (error) {
     console.error('Chat API error:', error);
@@ -85,7 +109,7 @@ export async function POST(req) {
 
 // Build enhanced system prompt with user's credit score data
 function buildSystemPrompt(creditScore, creditAnalysisDate) {
-  let basePrompt = 'You are TaxSage AI, a helpful Chartered Accountant and financial advisor specializing in Indian tax laws, loan eligibility, and financial planning.';
+  let basePrompt = 'You are TaxSage AI, a helpful Chartered Accountant and financial advisor specializing in Indian tax laws, loan eligibility, and financial planning.\n\nWhen users ask for roadmaps, plans, or strategies for financial goals (like buying something, saving, investing), provide detailed step-by-step actionable plans with specific timelines, amounts, and tax-saving strategies.';
   
   // Check if user has analyzed their credit score
   if (creditScore && creditScore !== 'null') {
@@ -114,7 +138,7 @@ function buildSystemPrompt(creditScore, creditAnalysisDate) {
     }
   } else {
     // User hasn't analyzed their credit score
-    basePrompt += `\n\nIMPORTANT: The user has NOT analyzed their credit score yet. For ANY loan-related queries, banking questions, or credit advice, you MUST first direct them to check their credit score by visiting the Credit Analysis page and uploading their credit report. Say something like: "Before I can provide specific loan advice, please first analyze your credit score by going to the Credit Analysis page and uploading your CIBIL/Experian credit report. This will help me give you personalized recommendations based on your actual creditworthiness."`;
+    basePrompt += `\n\nIMPORTANT: The user has NOT analyzed their credit score yet. For ANY loan-related queries, banking questions, or credit advice, you MUST first direct them to check their credit score by visiting the Credit Analysis page and using their Aadhaar and PAN. Say something like: "Before I can provide specific loan advice, please first analyze your credit score by going to the Credit Analysis page and entering your Aadhaar and PAN. This will help me give you personalized recommendations based on your actual creditworthiness."`;
   }
   
   basePrompt += '\n\nProvide practical, actionable advice considering Indian financial regulations, tax laws (Sections 80C, 80D, 24b, etc.), and current market conditions. Always mention TaxSage when appropriate.';

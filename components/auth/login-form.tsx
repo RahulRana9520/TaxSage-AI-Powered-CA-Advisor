@@ -15,14 +15,15 @@ export default function LoginForm() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [name, setName] = useState("")
-  const [phone, setPhone] = useState("")
+
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [passwordStrength, setPasswordStrength] = useState<"" | "Weak" | "Medium" | "Strong">("")
   const [showPassword, setShowPassword] = useState(false)
   const [lockout, setLockout] = useState(false)
   const [attempts, setAttempts] = useState(0)
-  const lockoutTimer = useRef<NodeJS.Timeout | null>(null)
+  // In browser environments setTimeout returns a number, so use number | null here
+  const lockoutTimer = useRef<number | null>(null)
   const router = useRouter()
 
   function isAllowedEmail(email: string) {
@@ -67,16 +68,12 @@ export default function LoginForm() {
       setError("Password must be at least 8 characters long.");
       return;
     }
-    if (!/^\+?[0-9]{10,15}$/.test(phone)) {
-      setLoading(false);
-      setError("Please enter a valid phone number with country code.");
-      return;
-    }
+
     try {
       const res = await fetch(`/api/auth/${mode}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password, name, phone }),
+        body: JSON.stringify({ email, password, name }),
       });
       if (!res.ok) {
         const j = await res.json().catch(() => ({}));
@@ -119,10 +116,6 @@ export default function LoginForm() {
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
             <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="phone">Phone (with country code)</Label>
-            <Input id="phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} required placeholder="e.g. +919876543210" />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="password">Password</Label>

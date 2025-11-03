@@ -6,9 +6,9 @@ import { createHash } from "crypto"
 const failedAttempts = new Map<string, { count: number, last: number }>()
 
 export async function POST(req: Request) {
-  const { email, password, phone } = await req.json()
-  if (!email || !password || !phone) {
-    return NextResponse.json({ error: "Email, password, and phone required" }, { status: 400 })
+  const { email, password } = await req.json()
+  if (!email || !password) {
+    return NextResponse.json({ error: "Email and password required" }, { status: 400 })
   }
   // Rate limit and lockout by email+ip
   const ip = req.headers.get("x-forwarded-for") || "unknown"
@@ -33,5 +33,5 @@ export async function POST(req: Request) {
   // ...
   failedAttempts.delete(key)
   await setSessionUserId(user.id)
-  return NextResponse.json({ ok: true, origin: phone })
+  return NextResponse.json({ ok: true })
 }

@@ -30,6 +30,7 @@ export default function DashboardPage() {
 
   const [chatInput, setChatInput] = useState("")
   const [chat, setChat] = useState<{ role: "user" | "assistant"; content: string }[]>([])
+  const [currentInput, setCurrentInput] = useState("")
   const abortRef = useRef<AbortController | null>(null)
 
   async function addExpense() {
@@ -46,6 +47,10 @@ export default function DashboardPage() {
   async function sendChat() {
     const content = chatInput.trim()
     if (!content) return
+    
+    // Store current input for roadmap detection
+    setCurrentInput(content)
+    
     setChat((c) => [...c, { role: "user", content }])
     setChatInput("")
     abortRef.current?.abort()
@@ -74,6 +79,73 @@ export default function DashboardPage() {
       const data = await res.json()
       const responseContent = data.content || "Sorry, I couldn't generate a response."
       setChat((c) => [...c, { role: "assistant", content: responseContent }])
+      
+      // Check if the user asked for a roadmap
+      const inputLower = content.toLowerCase();
+      const userAskedForRoadmap = inputLower.includes('roadmap') || 
+                                 inputLower.includes('make a plan') ||
+                                 inputLower.includes('create a plan') ||
+                                 inputLower.includes('help me plan') ||
+                                 inputLower.includes('strategy') ||
+                                 (inputLower.includes('plan') && (inputLower.includes('buy') || inputLower.includes('save') || inputLower.includes('invest')));
+      
+      if (userAskedForRoadmap && responseContent) {
+        // Extract title from user message
+        let title = 'Roadmap';
+        const afterRoadmap = inputLower.split('roadmap')[1]?.trim() || 
+                           inputLower.split('plan')[1]?.trim() ||
+                           inputLower.split('strategy')[1]?.trim();
+        if (afterRoadmap) {
+          title = `Roadmap: ${afterRoadmap.charAt(0).toUpperCase() + afterRoadmap.slice(1)}`;
+        }
+        
+        // Create roadmap with metadata
+        const roadmapData = {
+          id: Date.now().toString(),
+          title,
+          description: responseContent.trim(),
+          createdAt: new Date().toISOString(),
+          theme: 'default',
+          exported: false
+        };
+        
+        // Save to localStorage
+        const key = 'taxsage_roadmaps';
+        let roadmaps = [];
+        try {
+          const existing = localStorage.getItem(key);
+          if (existing) roadmaps = JSON.parse(existing);
+        } catch {}
+        roadmaps.push(roadmapData);
+        localStorage.setItem(key, JSON.stringify(roadmaps));
+        
+        // Show export button in chat for this message
+        setTimeout(() => {
+          const chatContainer = document.querySelector('.dashboard-chat-container');
+          if (chatContainer) {
+            const messageElements = chatContainer.querySelectorAll('[data-message-role="assistant"]');
+            const lastAssistantMessage = messageElements[messageElements.length - 1];
+            if (lastAssistantMessage && !lastAssistantMessage.querySelector('.export-roadmap-btn')) {
+              const exportBtn = document.createElement('button');
+              exportBtn.className = 'export-roadmap-btn bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm mt-3 mr-2 transition-colors';
+              exportBtn.textContent = '📋 Export to Roadmap';
+              exportBtn.onclick = () => {
+                roadmapData.exported = true;
+                const updatedRoadmaps = roadmaps.map((r: any) => r.id === roadmapData.id ? roadmapData : r);
+                localStorage.setItem(key, JSON.stringify(updatedRoadmaps));
+                window.dispatchEvent(new Event('taxsage_roadmap_updated'));
+                exportBtn.textContent = '✅ Exported';
+                exportBtn.disabled = true;
+                exportBtn.className = 'export-roadmap-btn bg-green-600 text-white px-3 py-1 rounded text-sm mt-3 mr-2 cursor-not-allowed opacity-75';
+              };
+              lastAssistantMessage.appendChild(exportBtn);
+            }
+          }
+        }, 100);
+        
+        // Trigger reload event for roadmap page
+        window.dispatchEvent(new Event('taxsage_roadmap_updated'));
+      }
       
     } catch (error) {
       console.error("Chat Error:", error)
@@ -270,6 +342,32 @@ export default function DashboardPage() {
             margin-top: 2.5rem;
           }
         }
+
+        /* Export button styling */
+        .export-roadmap-btn {
+          display: inline-block;
+          margin-top: 0.75rem;
+          padding: 0.5rem 0.75rem;
+          background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+          color: white;
+          border: none;
+          border-radius: 0.5rem;
+          font-size: 0.875rem;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+        }
+        .export-roadmap-btn:hover {
+          background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+          transform: translateY(-1px);
+          box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+        }
+        .export-roadmap-btn:disabled {
+          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+          cursor: not-allowed;
+          opacity: 0.8;
+        }
       `}</style>
       
       {/* Floating Background Elements */}
@@ -461,10 +559,11 @@ export default function DashboardPage() {
           <CardTitle style={{color: 'white'}}>Chat with your CA</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-3">
-          <div className="h-64 border border-white/20 rounded p-3 overflow-auto space-y-3 bg-white/5 backdrop-blur-sm">
+          <div className="h-64 border border-white/20 rounded p-3 overflow-auto space-y-3 bg-white/5 backdrop-blur-sm dashboard-chat-container">
             {chat.map((m, i) => (
               <div key={i} className={m.role === "user" ? "text-right" : "text-left"}>
                 <div
+                  data-message-role={m.role}
                   className={`inline-block max-w-full md:max-w-2xl px-4 py-3 rounded-2xl shadow-md whitespace-pre-wrap break-words text-base leading-relaxed ${
                     m.role === "user"
                       ? "bg-gradient-to-br from-blue-500/30 to-blue-700/30 border border-blue-400/30 text-blue-100"

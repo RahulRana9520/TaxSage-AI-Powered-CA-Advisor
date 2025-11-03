@@ -15,6 +15,12 @@ export type UserProfile = {
   location?: string
   dependents?: number
   filingStatus?: "single" | "married" | "huf" | "other"
+  // Credit score fields for scalable, backend-driven storage
+  creditScore?: number
+  creditBand?: string
+  creditProvider?: string
+  creditRetrievedAt?: string
+  creditSource?: string
 }
 
 export type IncomeEntry = {
