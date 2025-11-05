@@ -91,11 +91,12 @@ export async function POST(req) {
     
     const content = data.choices?.[0]?.message?.content || 'No response generated';
     
-    // Return format compatible with useChat hook
+    // Return format compatible with both useChat hook and mobile app
     return NextResponse.json({
       id: Date.now().toString(),
       role: 'assistant',
-      content: content
+      content: content,
+      message: content  // Add this for mobile app compatibility
     });
     
   } catch (error) {

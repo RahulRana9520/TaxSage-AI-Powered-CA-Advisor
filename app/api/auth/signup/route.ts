@@ -17,5 +17,13 @@ export async function POST(req: Request) {
   const passwordHash = createHash("sha256").update(password).digest("hex")
   await repo.createUser({ id, email, passwordHash, name, createdAt: new Date().toISOString() })
   await setSessionUserId(id)
-  return NextResponse.json({ ok: true })
+  
+  // Return user data for mobile app
+  return NextResponse.json({ 
+    ok: true, 
+    id, 
+    email, 
+    name: name || email.split('@')[0],
+    createdAt: new Date().toISOString()
+  })
 }

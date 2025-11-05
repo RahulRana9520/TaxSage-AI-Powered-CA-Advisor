@@ -33,5 +33,13 @@ export async function POST(req: Request) {
   // ...
   failedAttempts.delete(key)
   await setSessionUserId(user.id)
-  return NextResponse.json({ ok: true })
+  
+  // Return user data for mobile app
+  return NextResponse.json({ 
+    ok: true, 
+    id: user.id,
+    email: user.email, 
+    name: user.name || user.email.split('@')[0],
+    createdAt: user.createdAt
+  })
 }
