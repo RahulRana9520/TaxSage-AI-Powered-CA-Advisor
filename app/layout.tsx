@@ -10,6 +10,26 @@ export const metadata: Metadata = {
   title: "TaxSage - AI-Powered CA Advisor",
   description: "Smart financial management with AI-powered credit analysis and CA advisory services",
   generator: "TaxSage",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "TaxSage",
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    siteName: "TaxSage",
+    title: "TaxSage - AI-Powered CA Advisor",
+    description: "Your Smart Tax & Financial Assistant",
+  },
+  twitter: {
+    card: "summary",
+    title: "TaxSage - AI-Powered CA Advisor",
+    description: "Your Smart Tax & Financial Assistant",
+  },
 }
 
 export default function RootLayout({
@@ -19,6 +39,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <meta name="theme-color" content="#3B82F6" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="TaxSage" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="application-name" content="TaxSage" />
+        <link rel="apple-touch-icon" href="/icon-192.svg" />
+        <link rel="icon" type="image/svg+xml" sizes="192x192" href="/icon-192.svg" />
+        <link rel="icon" type="image/svg+xml" sizes="512x512" href="/icon-512.svg" />
+      </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <Suspense fallback={<div>Loading...</div>}>
           <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10">
