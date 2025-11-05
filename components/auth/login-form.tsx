@@ -3,6 +3,8 @@
 import type React from "react"
 
 import { useState, useRef } from "react"
+
+// Force deployment - no phone field in signup
 import { Eye, EyeOff } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
